@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from yaml import load, dump
+from yaml import safe_load, dump
 try:
   from yaml import CLoader as Loader, CDumper as Dumper
 except ImportError:
@@ -144,7 +144,7 @@ if __name__ == '__main__':
     pause = False
     lastStep = -1
     # Load YAML data
-    data = load(open(rospy.get_param('~DataFile', '')))
+    data = safe_load(open(rospy.get_param('~DataFile', '')))
     # Setup ROS node
     robotTime = 0
     
